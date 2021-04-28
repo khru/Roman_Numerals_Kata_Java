@@ -25,4 +25,9 @@ class ConverterTest {
     public void should_convert_3_into_III() {
         assertEquals("III", converter.convert(3));
     }
+
+    @Test
+    public void should_convert_4_into_IV() {
+        assertEquals("IV", converter.convert(4));
+    }
 }
