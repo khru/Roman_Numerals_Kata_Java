@@ -50,4 +50,9 @@ class ConverterTest {
     public void should_convert_8_into_VIII() {
         assertEquals("VIII", converter.convert(8));
     }
+
+    @Test
+    public void should_convert_9_into_IX() {
+        assertEquals("IX", converter.convert(9));
+    }
 }
