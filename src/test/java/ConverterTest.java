@@ -6,7 +6,7 @@ import static org.hamcrest.Matchers.instanceOf;
 class ConverterTest {
 
     @Test
-    public void give_me_a_good_name_please() {
+    public void should_create_a_converter() {
         Converter converter = new Converter();
         assertThat(converter, instanceOf(Converter.class));
     }
