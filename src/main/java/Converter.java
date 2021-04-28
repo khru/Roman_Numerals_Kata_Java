@@ -1,7 +1,9 @@
 public class Converter {
     public String convert(int number) {
 
-        if (number == 5) {
+        if (number == 6) {
+            return "VI";
+        } else if (number == 5) {
             return "V";
         } else if (number == 4) {
             return "IV";
