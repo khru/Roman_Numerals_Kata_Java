@@ -7,12 +7,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class ConverterTest {
 
     @Test
-    public void should_create_a_converter() {
-        Converter converter = new Converter();
-        assertThat(converter, instanceOf(Converter.class));
-    }
-
-    @Test
     public void should_convert_1_into_I() {
         Converter converter = new Converter();
         assertEquals("I", converter.convert(1));
