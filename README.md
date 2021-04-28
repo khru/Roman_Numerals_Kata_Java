@@ -1,47 +1,31 @@
 # Goal
-Be able to test printCurrentDate function without changing the method signature.
+To help other to learn how to implement TDD and version control on their own projects.
 
-1. Test the code with doubles using a library.
-2. Test the code with doubles created by you.
-# Code to test
-	public void printCurrentDate() {
-		String line = calendar.today().toString();
-		printer.printLine(line);
-	}
+# Tasks
+Write a method `String convert(int)` that takes a number and converts it to the according String representation.
+
+![problem_to_solve](./numeros_romanos.png)
+# Hint
+This kata lures a lot of people to implement features in the order of the numbers. But do not forget that it’s sometimes easier to start with a general case and add exceptions later.
+
 # Learnings
 
-How to use Mockito to generate the doubles.
+- [ ] TDD
+- [ ] Baby steps
+- [ ] Version control
 
-How to build a Mock and Stub manually.
-
+ 
 ## Tools
-[Mockito](http://mockito.org/)
-### Example of spy
 
-    @Test
-    public void should_send_an_email() {
-        EmailSender sender = mock(EmailSender.class);
-        UserRegistration userRegistration = new UserRegistration(sender);
-
-        userRegistration.register();
-
-        verify(sender).send(any());
-    }
-	
-### Example of stub
-
-    @Test
-    public void should_success_when_password_is_valid() {
-        PasswordValidator passwordValidator = mock(PasswordValidator.class);
-        when(passwordValidator.isValid(‘validPassword’)).thenReturn(true);
-        UserRegistration userRegistration = new UserRegistration(passwordValidator);
-
-        bool success = userRegistration.register();
-
-        assertTrue(success);
-    }
+- [ ] Git
+- [ ] Docker
+- [ ] Terminal line
 
 ## Authors
+
+Emmanuel Valverde [@evrtrabajo](https://www.twitter.com/evrtrabajo)
+
+## Setup
 Luis Rovirosa [@luisrovirosa](https://www.twitter.com/luisrovirosa)
 
 Jordi Anguela [@jordianguela](https://www.twitter.com/jordianguela)
