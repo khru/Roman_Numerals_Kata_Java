@@ -9,4 +9,10 @@ class ConverterTest {
         Converter converter = new Converter();
         assertEquals("I", converter.convert(1));
     }
+
+    @Test
+    public void should_convert_2_into_II() {
+        Converter converter = new Converter();
+        assertEquals("II", converter.convert(2));
+    }
 }
