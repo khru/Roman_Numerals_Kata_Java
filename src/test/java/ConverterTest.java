@@ -30,4 +30,9 @@ class ConverterTest {
     public void should_convert_4_into_IV() {
         assertEquals("IV", converter.convert(4));
     }
+
+    @Test
+    public void should_convert_5_into_V() {
+        assertEquals("V", converter.convert(5));
+    }
 }
