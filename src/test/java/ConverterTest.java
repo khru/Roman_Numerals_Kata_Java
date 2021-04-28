@@ -15,4 +15,10 @@ class ConverterTest {
         Converter converter = new Converter();
         assertEquals("II", converter.convert(2));
     }
+
+    @Test
+    public void should_convert_3_into_III() {
+        Converter converter = new Converter();
+        assertEquals("III", converter.convert(3));
+    }
 }
