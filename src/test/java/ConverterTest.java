@@ -4,13 +4,13 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class MyClassTest {
+class ConverterTest {
 
 	@Test
 	public void give_me_a_good_name_please() {
-		MyClass myClass = new MyClass();
+		Converter converter = new Converter();
 
-		boolean result = myClass.theMethod();
+		boolean result = converter.theMethod();
 
 		assertEquals(true, result);
 		assertThat(result, equalTo(true));
