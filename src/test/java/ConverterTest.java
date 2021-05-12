@@ -80,4 +80,29 @@ class ConverterTest {
   public void should_convert_20_into_XX() {
     assertEquals("XX", converter.convert(20));
   }
+
+  @Test
+  public void should_convert_24_into_XXIV() {
+    assertEquals("XXIV", converter.convert(24));
+  }
+
+  @Test
+  public void should_convert_25_into_XXV() {
+    assertEquals("XXV", converter.convert(25));
+  }
+
+  @Test
+  public void should_convert_26_into_XXVI() {
+    assertEquals("XXVI", converter.convert(26));
+  }
+
+  @Test
+  public void should_convert_29_into_XXIX() {
+    assertEquals("XXIX", converter.convert(29));
+  }
+
+  @Test
+  public void should_convert_30_into_XXX() {
+    assertEquals("XXX", converter.convert(30));
+  }
 }
