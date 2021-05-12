@@ -1,24 +1,15 @@
 public class Converter {
+  private int numbers[] = {10, 9, 5, 4, 1};
+  private String symbols[] = {"X", "IX", "V", "IV", "I"};
+
   public String convert(int number) {
 
     StringBuilder romanNumber = new StringBuilder();
-    if (number >= 10) {
-      romanNumber.append(concatenateSymbols(number / 10, "X"));
-      number %= 10;
-    }
-    if (number == 9) {
-      romanNumber.append("IX");
-      number -= 9;
-    } else if (number >= 5) {
-      romanNumber.append("V");
-      number -= 5;
-    } else if (number == 4) {
-      romanNumber.append("IV");
-      number -= 4;
-    }
 
-    romanNumber.append(concatenateSymbols(number, "I"));
-
+    for (int i = 0; i < numbers.length; i++) {
+      romanNumber.append(concatenateSymbols(number / numbers[i], symbols[i]));
+      number %= numbers[i];
+    }
     return romanNumber.toString();
   }
 
