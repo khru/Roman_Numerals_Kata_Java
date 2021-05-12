@@ -60,4 +60,14 @@ class ConverterTest {
   public void should_convert_10_into_X() {
     assertEquals("X", converter.convert(10));
   }
+
+    @Test
+    public void should_convert_11_into_XI() {
+        assertEquals("XI", converter.convert(11));
+    }
+
+    @Test
+    public void should_convert_14_into_XII() {
+        assertEquals("XIV", converter.convert(14));
+    }
 }
