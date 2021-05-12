@@ -61,23 +61,23 @@ class ConverterTest {
     assertEquals("X", converter.convert(10));
   }
 
-    @Test
-    public void should_convert_11_into_XI() {
-        assertEquals("XI", converter.convert(11));
-    }
+  @Test
+  public void should_convert_11_into_XI() {
+    assertEquals("XI", converter.convert(11));
+  }
 
-    @Test
-    public void should_convert_14_into_XII() {
-        assertEquals("XIV", converter.convert(14));
-    }
+  @Test
+  public void should_convert_14_into_XII() {
+    assertEquals("XIV", converter.convert(14));
+  }
 
-    @Test
-    public void should_convert_19_into_XIX() {
-        assertEquals("XIX", converter.convert(19));
-    }
+  @Test
+  public void should_convert_19_into_XIX() {
+    assertEquals("XIX", converter.convert(19));
+  }
 
-    @Test
-    public void should_convert_19_into_XX() {
-        assertEquals("XX", converter.convert(20));
-    }
+  @Test
+  public void should_convert_20_into_XX() {
+    assertEquals("XX", converter.convert(20));
+  }
 }
