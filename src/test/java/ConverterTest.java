@@ -70,4 +70,9 @@ class ConverterTest {
     public void should_convert_14_into_XII() {
         assertEquals("XIV", converter.convert(14));
     }
+
+    @Test
+    public void should_convert_19_into_XIX() {
+        assertEquals("XIX", converter.convert(19));
+    }
 }
