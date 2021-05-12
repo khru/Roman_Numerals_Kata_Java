@@ -3,7 +3,7 @@
 function ensure::jq() {
     REQUIRED_PKG=jq
     PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG|grep "install ok installed")
-    echo "Checking for $REQUIRED_PKG: {STATUS} $PKG_OK"
+    echo "Checking for $REQUIRED_PKG {STATUS}: $PKG_OK"
     if [ "" = "$PKG_OK" ]; then
       echo "⛔ No $REQUIRED_PKG. Setting up $REQUIRED_PKG."
       sudo apt-get --yes install $REQUIRED_PKG
@@ -13,33 +13,41 @@ function ensure::jq() {
 function ensure::curl() {
     REQUIRED_PKG=curl
     PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG|grep "install ok installed")
-    echo "Checking for $REQUIRED_PKG: {STATUS} $PKG_OK"
+    echo "Checking for $REQUIRED_PKG {STATUS}: $PKG_OK"
     if [ "" = "$PKG_OK" ]; then
       echo "⛔ No $REQUIRED_PKG. Setting up $REQUIRED_PKG."
       sudo apt-get --yes install $REQUIRED_PKG
     fi
 }
 
+function ensure::formatter() {
+  if [ "$(ls -A $HOME/.cache/google-java-format-git-pre-commit-hook)" ]; then
+    echo "👍 We have the formatter downloaded"
+  else
+    echo "⬇️ Downloading formatter"
+    REPO=google/google-java-format
+    JAR_URL=$(curl -s https://api.github.com/repos/${REPO}/releases/latest | jq -r '.assets[0].browser_download_url')
+    JAR_NAME=$(echo ${JAR_URL##*/})
+    CACHE_DIR="$HOME/.cache/google-java-format-git-pre-commit-hook"
+    JAR_FILE="$CACHE_DIR/$JAR_NAME"
+    if [[ ! -f "$JAR_FILE" ]]
+    then
+        echo "Setting up google-java-format"
+        mkdir -p "$CACHE_DIR"
+        curl -L "$JAR_URL" -o "$JAR_FILE"
+
+    fi
+  fi
+}
+
 ensure::jq
 ensure::curl
-
-REPO=google/google-java-format
-JAR_URL=$(curl -s https://api.github.com/repos/${REPO}/releases/latest | jq -r '.assets[0].browser_download_url')
-JAR_NAME=$(echo ${JAR_URL##*/})
-CACHE_DIR="$HOME/.cache/google-java-format-git-pre-commit-hook"
-JAR_FILE="$CACHE_DIR/$JAR_NAME"
-
+ensure::formatter
 
 echo "====================================="
 echo " ☕️ Running pre-commit code formatter"
 echo "====================================="
-if [[ ! -f "$JAR_FILE" ]]
-then
-    echo "Setting up google-java-format"
-    mkdir -p "$CACHE_DIR"
-    curl -L "$JAR_URL" -o "$JAR_FILE"
 
-fi
 changed_java_files=$(git diff --cached --name-only --diff-filter=ACMR | grep ".*java$" || true)
 if [[ -n "$changed_java_files" ]]
 then
