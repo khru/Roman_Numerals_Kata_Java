@@ -51,7 +51,7 @@ echo "====================================="
 changed_java_files=$(git diff --cached --name-only --diff-filter=ACMR | grep ".*java$" || true)
 if [[ -n "$changed_java_files" ]]
 then
-    JAR_FILE=$(ls -1 $HOME/.cache/google-java-format-git-pre-commit-hook)
+    JAR_FILE=$HOME/.cache/google-java-format-git-pre-commit-hook/$(ls -1 $HOME/.cache/google-java-format-git-pre-commit-hook)
     echo "🗃️: The following files will checked and reformatted:"
     echo "$changed_java_files"
     if ! java -jar "$JAR_FILE" --replace --set-exit-if-changed $changed_java_files
