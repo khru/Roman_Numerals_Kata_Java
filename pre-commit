@@ -35,7 +35,7 @@ function ensure::formatter() {
         echo "Setting up google-java-format"
         mkdir -p "$CACHE_DIR"
         curl -L "$JAR_URL" -o "$JAR_FILE"
-
+        sudo chmod +x $JAR_FILE;
     fi
   fi
 }
