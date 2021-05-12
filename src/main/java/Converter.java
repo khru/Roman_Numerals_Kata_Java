@@ -2,8 +2,9 @@ public class Converter {
     public String convert(int number) {
 
         String romanNumber = "";
-        if (number == 10) {
-            return "XX";
+        if (number >= 10) {
+            romanNumber += "X";
+            number -= 10;
         }
         if (number == 9) {
             return "IX";

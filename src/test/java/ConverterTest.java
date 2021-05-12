@@ -58,6 +58,6 @@ class ConverterTest {
 
   @Test
   public void should_convert_10_into_XX() {
-    assertEquals("XX", converter.convert(10));
+    assertEquals("X", converter.convert(10));
   }
 }
