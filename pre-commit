@@ -22,7 +22,7 @@ function ensure::curl() {
 
 function ensure::formatter() {
   if [ "$(ls -A $HOME/.cache/google-java-format-git-pre-commit-hook)" ]; then
-    echo "👍 We have the formatter downloaded"
+    echo "👍 We have the formatter on the cache ♻️"
   else
     echo "⬇️ Downloading formatter"
     REPO=google/google-java-format
