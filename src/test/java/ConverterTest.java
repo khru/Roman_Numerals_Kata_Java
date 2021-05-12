@@ -57,7 +57,7 @@ class ConverterTest {
   }
 
   @Test
-  public void should_convert_10_into_XX() {
+  public void should_convert_10_into_X() {
     assertEquals("X", converter.convert(10));
   }
 }
