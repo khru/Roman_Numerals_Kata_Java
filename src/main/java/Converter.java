@@ -12,7 +12,8 @@ public class Converter {
             romanNumber += "V";
             number -= 5;
         } else if (number == 4) {
-            return "IV";
+            romanNumber += "IV";
+            number -= 4;
         }
 
         for (int i = 0; i < number ; i++) {
